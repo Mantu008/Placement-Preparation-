@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Clear and Run Java",
+            "type": "shell",
+            "command": "clear && javac Find_Pivit_in_Array.java && java Find_Pivit_in_Array",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "shell": {
+                    "executable": "C:\\Windows\\System32\\cmd.exe",
+                    "args": ["/c"]
+                }
+            }
+        }
+    ]
+}  

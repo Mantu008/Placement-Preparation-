@@ -1,0 +1,72 @@
+
+Q1.Positive or Negative number
+
+import java.util.*;
+public class Main{
+  public static void main(String[] args){
+      Scanner sc=new Scanner(System.in);
+	  int num;
+	  System.out.print("Enter The Number :");
+	  num=sc.nextInt();
+	  checkNumber(num);
+  }
+  public static void checkNumber(int num){
+       if(num==0){
+	      System.out.Println("Given Number is Equal to Zero");
+	   }else if(num>0){
+	      System.out.Println("Given Number is Positive");
+	   }else{
+	      System.out.Println("Given Number is Negative");
+	   }
+  }
+}
+
+
+Q2.Even or Odd number
+
+import java.util.*;
+class Main{
+  public static void main(String[] args){
+      Scanner sc=new Scanner(System.in);
+	  int num;
+	  System.out.print("Enter a Number :");
+	  num=sc.nextInt();
+	  checkEvanOdd(num);
+  }
+  public static void checkEvanOdd(int num){
+      System.out.println("Given Number is :"+ num%2==0 ? +"Even" :+" Odd");
+  }
+}
+
+
+
+Q3. Sum of First N Natural numbers
+
+import java.util.*;
+public class Main {
+   public static void main(String[] args){
+       Scanner sc=new Scanner(System.in);
+	   int num;
+	   System.out.print("Enter a Number :");
+	   num=sc.nextInt();
+	   findSum(num);
+   }
+   public static void findSum(int num){
+       int sum=0;
+       for(int i=1;i<=num;i++){
+	      sum+=i;
+	   }
+	   System.out.print(sum);
+   }
+}
+
+
+Q4. Smallest number among array
+
+public class Smallest_element_in_array {
+    public static void main(String[] args) {
+        int arr[] = { 13, 89, 76, 43, 7, 90 };
+        int smallestElement=findSmallestNumber(arr);
+		System.out.printLn(");
+    }
+}

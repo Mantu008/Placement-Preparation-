@@ -1,0 +1,252 @@
+Q1.Reverce a String 
+
+Eg:-
+Input: "hello"
+Output: "olleh"
+
+public class Main{
+   public static void main(String[] args){
+         String input="hello";
+		 String output="";
+		
+		 for(int i=input.length()-1;i>=0;i--){
+		     output+=input.charAt(i);
+		 }
+		System.out.println(output);
+   }
+}
+
+Q2.Check if a String is a Palindrome
+
+EG:-    
+
+Input: "madam"   Output: True
+
+Input: "hello"   Output: False
+
+public class Main{
+   public static void main(String[] args){
+        String input="madam";
+		boolean isPalindrome=checkPalindrome(input);
+		System.out.println(isPalindrome);
+   }
+   public static boolean checkPalindrome(String input){
+           int start=0;
+		   int end=input.length()-1;
+		   while(start<=end){
+		       if(input.charAt(start)!=input.charAt(end)){
+			       return false;
+			   }
+			   start++;
+			   end--;
+		   }
+		   return true;
+   }
+}
+
+Q3.Find the First Non-Repeating Character
+
+Input: "aabbccddeeef"  Output: "f"
+
+import java.util.*;
+public class Main{
+   public static void main(String[] args){
+         String input="aabbccddeeef";
+		 char firstNonRepeatingCharacter=checkFirstNonRepeatingCharacter(input);
+		 System.out.println(firstNonRepeatingCharacter);
+   }
+   public static char checkFirstNonRepeatingCharacter(String input){
+        Queue<Character> st1 = new LinkedList<>();
+        Queue<Character> st2 = new LinkedList<>();
+
+		
+		for(int i=0;i<input.length();i++){
+		    if(!st1.contains(input.charAt(i)) && !st2.contains(input.charAt(i))){
+			   st1.add(input.charAt(i));
+			   st2.add(input.charAt(i));
+			}else if(st1.contains(input.charAt(i)) && st2.contains(input.charAt(i))){
+			     st2.remove(input.charAt(i));
+			}
+		}
+		
+		return st2.peek();
+		
+   }
+}
+
+Q4.Count Character Occurrences
+
+Input: "apple"     Output: {'a': 1, 'p': 2, 'l': 1, 'e': 1}
+
+import java.util.*;
+public class Main{
+   public static void main(String[] args){
+       String input="apple";
+	   Map<Character,Integer> mp=new HashMap<>();
+	   for(int i=0;i<input.length();i++){
+	       char ch=input.charAt(i);
+		   mp.put(ch,mp.getOrDefault(ch,0)+1);
+	   }
+	   System.out.println(mp);
+   }
+}
+
+
+Q5.Check if Two Strings are Anagrams
+
+Input: "listen", "silent"   Output: True
+
+Input: "hello", "world" Output: False
+
+import java.util.*;
+public class Main{
+  public static void main(String[] args){
+      String s1="listen";
+	  String s2="silent";
+	  boolean isAnagrams=checkAnagrams(s1,s2);
+	  System.out.println(isAnagrams);
+  }
+  public static boolean checkAnagrams(String s1,String s2){
+       Stack<Character> st=new Stack<>();
+	   //if both string length is not same then it is not a anagram of each
+	   if(s1.length()!=s2.length()){
+	     return false;
+	   }
+	   //insert each Character of string1 into the stack 
+	   for(int i=0;i<s1.length();i++){
+	      st.push(s1.charAt(i));
+	   }
+	   //check all Character of string2 into the stack
+	   for(int i=0;i<s2.length();i++){
+	      if(st.contains(s2.charAt(i))){
+		    st.remove((Character)s2.charAt(i));
+		  }else{
+		     return false;
+		  }
+	   }
+	   
+	   return st.size()==0 ? true :false;
+  }
+}
+
+
+Q6.Remove Duplicate Characters
+
+Input: "banana"  Output: "ban"
+import java.util.*;
+public class Main{
+  public static void main(String[] args){
+       String input="banana";
+	   String stringAfterRemoveDuplicateCharacter=removeDuplicateCharacter(input);
+	   System.out.println(stringAfterRemoveDuplicateCharacter);
+  }
+  public static String removeDuplicateCharacter(String input){
+     Queue<Character> qu=new LinkedList<>();
+	 for(char ch:input.toCharArray()){
+	    if(!qu.contains(ch)){
+		     qu.add(ch);
+		}
+	 }
+	 String s="";
+	 while(!qu.isEmpty()){
+	   s=s+qu.poll();
+	 }
+	 return s;
+  }
+}
+
+Q7.Convert a String to an Integer (atoi Implementation)
+
+Input: "123"  Output: 123
+
+Input: "-456" Output: -456
+
+public class Main{
+  public static void main(String[] args){
+   
+   String input="-456";
+   int number=myAtoi(input);
+   System.out.println(number);
+  }
+  public static int myAtoi(String s){
+      s=s.trim();
+	  if(s.isEmpty()) return 0;
+	  
+	  int num=0;
+	  int i=0;
+	  int sign=1;
+	  
+	  if(s.charAt(i)=='-' || s.charAt(i)=='+'){
+	    sign = (s.charAt(i)=='-')? -1 : +1;
+		i++;
+	  }
+	  
+	  while(i<s.length() && Character.isDigit(s.charAt(i))){
+	      num= num *10 +(s.charAt(i) - '0');
+		  i++;
+	  }
+	  
+	  return num*sign;
+  }
+}
+
+Q8.Check if a String Contains Only Digits
+
+Input: "12345"  Output: True
+
+Input: "12a45"  Output: False
+
+public class Main{
+   public static void main(String[] args){
+        String input="12a45";
+		boolean isContainOnlyNumber=checkContainOnlyNumber(input);
+		System.out.println(isContainOnlyNumber);
+   }
+   public static boolean checkContainOnlyNumber(String s){
+      return s.matches("//d+");
+   }
+   public static boolean checkContainOnlyNumber(String s){
+      for(char ch:s.toCharArray()){
+	     if(!Character.isDigit(ch)){
+		     return false;
+		 }
+	  }
+	  return true;
+   }
+   
+    public static boolean checkContainOnlyNumber(String s){
+      try{
+	      Integer.parseInt(s);
+		  return true;
+	  }catch(NumberFormatException e){   
+	      return false;
+	  }
+   }
+}
+
+
+Q9.Reverse Words in a Sentence
+
+Input: "I love programming"   Output: "programming love I"
+
+public class Main{
+    public static void main(String[] args){
+	    String input="I love programming";
+		String revSentence=makeReverceSentence(input);
+		System.out.println(revSentence);
+	}
+	public static String makeReverceSentence(String input){
+	    String[] arr=input.split(" ");
+		int start=0;
+		int end=arr.length-1;
+		while(start<=end){
+		  String temp=arr[start];
+		  arr[start]=arr[end];
+		  arr[end]=temp;
+		  start++;
+		  end--;
+		}
+		String revSentence=String.join(" ",arr);
+		return revSentence;
+	}
+}

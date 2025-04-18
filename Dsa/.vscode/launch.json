@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Check_Target_In_Array",
+            "request": "launch",
+            "mainClass": "Check_Target_In_Array",
+            "projectName": "Dsa_911ad4f6"
+        },
+        {
+            "type": "java",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "YourProjectName"
+        }
+    ]
+}

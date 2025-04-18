@@ -1,0 +1,422 @@
+
+// array imp placement question 
+
+//1. find second largest
+
+public class finndSecondLargest{
+
+  public static void main(String[] args){
+     int arr[]={12,35,1,10,34,1};
+     int secondLargest=getSecondLargest(arr);
+     System.out.println(secondLargest);
+ }
+ 
+  public static int getSecondLargest(int arr[]){
+    int largest=-1;
+    int secondLargest=-1;
+	
+    for(int i=0;i<arr.lenth;ii++){
+	
+      if(arr[i]>largest){
+         secondLargest=largest;
+         largest=arr[i];    
+      }
+	  
+      if(arr[i]>secondLargest && arr[i]<largest){
+            secondLargest=arr[i];
+      }
+   }
+  return secondLargest;
+ }
+}
+
+
+
+
+
+//2. find second smallest 
+
+
+public class Main{
+  public static void main(String args[]){
+     int arr[]={12,35,1,10,34,1};
+     int secondsmallestNumber=findSecondSmallest(arr);
+     System.out.println(secondsmallestNumber);
+ }
+ 
+ public static int findSecondSmallest(int arr[]){
+
+    int smallest=Integer.MAX_VALUE;
+    int secondSmallest=Integer.MAX_VALUE;  
+
+    for(int i=0;i<arr.length;i++){
+
+      if(arr[i]<smallest) {
+         secondSmallest=smallest;
+         smallest=arr[i];
+      }
+
+      if(arr[i]<secondSmallest && arr[i]>smallest) {
+         secondSmallest=arr[i];
+      }  
+
+    }
+
+   return secondSmallest;
+
+ }
+ 
+}
+
+
+
+// 3. check if array is sorted
+
+public class Main{
+  public static void main(String[] args){
+     int arr[]={12,35,1,10,34,1};
+     boolean arrSorted=checkArrSorted(arr);
+     System.out.println(arrSorted);
+ }
+
+ public static boolean checkArrSorted(int arr[]){
+     for(int i=0;i<arr.length-1;i++){
+        if(arr[i]>arr[i+1]){
+          return false;
+        }
+     }
+    return true;
+ }
+
+}
+
+
+//4. find missing number 
+
+public class Main{
+  public static void main(String[] args){
+     int arr[]={1,2,3,5};
+     int n=5;
+     int missingNumber=FindMissingNumber(arr,n);
+     System.out.println(missingNumber);
+ }
+
+  public static int FindMissingNumber(int arr[],int n){
+  
+     int total=0;
+
+     for(int i=0;i<arr.length;i++){
+        total+=arr[i];             
+     }
+   
+     int totalByGivanN=n*(n+1)/2;
+     
+
+    int missingNumber=totalByGivanN-total;
+  
+    return missingNumber;
+  
+  }
+
+}
+
+
+// 5. reverce an given array 
+
+
+Public class Main{
+
+  public static void main(String[] args){
+     int arr[]={1,3,4,5,6,9};
+     reverceArray(arr);
+     for(int i=0;i<arr.length;i++){
+        System.out.println(arr[i]);
+     }
+ }
+
+ public static void reverceArray(int arr[]){
+       
+     int start=0;
+     int end=arr.length-1;
+     while(start<=end){
+        int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+     }   
+
+ }
+
+}
+
+
+// 6. reverce an given array with alternate positation
+
+
+public class Main{
+  public static void main(String[] args){
+     int arr[]={1,2,3,4,5};
+     reverceAlternatePosition(arr);
+     for(int i=0;i<arr.length;i++){
+        System.out.print(arr[i]+" ");
+     } 
+ }
+
+ public static void reverceAlternatePosition(int arr[]){
+      for(int i=0;i<arr.length-1;i+=2){
+          int temp=arr[i];
+          arr[i]=arr[i+1];
+          arr[i+1]=temp;
+      } 
+ }
+
+}
+
+
+// 7. find min in given array 
+
+public class Main{
+   public static void main(String[] args){
+       int arr[]={2,5,1,7,9,8};
+	   int minimumElement=findMinimumELement(arr);
+	   System.out.print(minimumElement);
+   }   
+   public static int findMinimumELement(int arr[]){
+          int min=Integer.MAX_VALUE;
+		  for(int i=0;i<arr.length;i++){
+		       if(arr[i]<min){
+			       min=arr[i];
+			   }
+		  }
+		  
+		  return min;
+   }
+}
+
+
+// 8. find max in given array 
+
+public class Main{
+  public static void main(String[] args){
+     int arr[]={2,5,1,7,9,8};
+	 int maximumElement=findMaximumElement(arr);
+	 System.out.println(maximumElement);
+  }
+  public static int findMaximumElement(int arr[]){
+        int max=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++){
+		   if(arr[i]>max){
+		      max=arr[i];
+		   }
+		}
+		return max;
+  }
+}
+
+// 8. check if given key present or not in the array
+
+public class Main{
+  public static void main(String[] args){
+     int arr[]={1,3,7,9,4,6};
+	 int key=9;
+	 boolean presentKey=findKey(arr,key);
+	 System.out.println(presentKey);
+  }
+  public static boolean findKey(int arr[],int key){
+       for(int i=0;i<arr.length;i++){
+	       if(arr[i]==key){
+		       return true;
+		   }
+	   }
+	   
+	  return false;
+  }
+}
+
+// 9. find unique element in array
+
+public class Main{
+ public static void main(String[] args){
+    int arr[]={1,2,3,2,1};
+	int uniqueElement=findUniqueElement(arr);
+	if(uniqueElement!=0){
+	    System.out.println(uniqueElement);
+	}else{
+	    System.out.println("Not Found Any Unique Element");
+	}
+}
+  public static int findUniqueElement(int arr[]){
+      int unique=0;
+	  for(int i=0;i<arr.length;i++){
+	      unique=unique^arr[i];
+	  }
+	  return unique;
+  }
+}
+
+
+// 10. find intersection of array
+
+import java.util.ArrayList;
+public class Main{
+ public static void main(String[] args){
+     int arr1[]={1,2,3,4};
+	 int arr2[]={1,2,3,7};
+	 ArrayList<Integer> list=new ArrayList<>();
+	 findIntersection(arr1,arr2,list);
+ }
+  public static void findIntersection(int arr1[],int arr2[],ArrayList<Integer> list){
+	 ArrayList<Integer> dummyList=new ArrayList<>();
+
+      for(int i=0;i<arr1.length;i++){
+	      dummyList.add(arr1[i]);
+	  }
+	  
+	  for(int i=0;i<arr2.length;i++){
+	     if(dummyList.contains(arr2[i])){
+		     list.add(arr2[i]);
+		 }
+	  }
+  }
+}
+
+
+// 11. find union of array
+
+import java.util.ArrayList;
+public class Main{
+ public static void main(String[] args){
+     int arr1[]={1,2,3,4};
+	 int arr2[]={1,2,3,7};
+	 ArrayList<Integer> list=new ArrayList<>();
+	 findIntersection(arr1,arr2,list);
+	  System.out.println(list);
+ }
+  public static void findIntersection(int arr1[],int arr2[],ArrayList<Integer> list){
+      for(int i=0;i<arr1.length;i++){
+	      list.add(arr1[i]);
+	  }
+	  
+	  for(int i=0;i<arr2.length;i++){
+	     if(!list.contains(arr2[i])){
+		     list.add(arr2[i]);
+		 }
+	  }
+  }
+}
+
+// 12. rotate the given array by given d
+
+
+public class Main{
+  public static void main(String[] args){   
+	 int arr[]={1,2,3,4,5,6};
+	 int d=2;
+	 for(int i=0;i<arr.length;i++){
+	    System.out.print(arr[i]+" ");
+	 }
+	 
+	 rotate(arr,d);
+
+     System.out.print("After Rotation");
+	 
+	 for(int i=0;i<arr.length;i++){
+	    System.out.print(arr[i]+" ");
+	 }
+  }
+  
+  public static void rotate(int arr[],int d){
+    int n=arr.length;
+	for(int i=0;i<d;i++){
+	  int first=arr[0];
+	  for(int j=0;j<n-1;j++){
+	    arr[j]=arr[j+1];
+	  }
+	  arr[n-1]=first;
+	}
+  }
+}
+
+// 13. Richest Customer Welth
+
+public class Main{
+  public static void main(String[] args){
+        int arr[][] = {{1, 2, 3}, {9, 1, 3}}; // ✅ Correct
+		int reachestCustomerWelth=findReachestCustomerWelth(arr);
+	    System.out.println(reachestCustomerWelth);
+  }
+  public static int findReachestCustomerWelth(int [][]arr){
+       int ans=Integer.MIN_VALUE;
+	   int welth=0;
+	   for(int i=0;i<arr.length;i++){
+	     for(int j=0;j<arr[i].length;j++){
+		    welth+=arr[i][j];
+		 }
+		 if(welth>ans){
+		   ans=welth;
+		 }
+		 welth=0;
+	   }
+	   
+  }
+}
+
+
+Q14.Short 0 and 1
+
+public class Main{
+  public static void main(String[] args){
+         int[] arr={0,1,1,1,0,1,0,1,1,0,0,0,1,0,1};
+         System.out.println("Before Short");
+         for (int i=0;i<arr.length ;i++  ){
+	         System.out.print(arr[i]+" ");
+	     } 
+	     sort(arr);
+	     System.out.println("");
+	     System.out.println("After Short");
+	     for (int i=0;i<arr.length ;i++  ){
+	         System.out.print(arr[i]+" ");
+	     } 
+  }
+  public static void sort(int[] arr){
+      int start=0;
+	  int end=arr.length-1;
+	  while(start<=end){
+	  
+	     if(arr[start]==0){
+		     start++;
+		 }
+		 
+		 if(arr[end]==1){
+		    end--;
+		 }
+		 
+		 if(arr[start]==1 || arr[end]==0){
+		     int temp=arr[start];
+			 arr[start]=arr[end];
+			 arr[end]=temp;
+			 start++;
+		     end--;
+		 }
+		
+		 
+		
+	  }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
